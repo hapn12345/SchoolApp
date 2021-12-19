@@ -17,4 +17,20 @@
     <string name="user_name">User Name</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
+    <string name="home">Home</string>
+    <string name="messages">Messages</string>
+    <string name="news">News</string>
+    <string name="notifications">Notifications</string>
+    <string name="account">Account</string>
+    <string name="pham_ha">Pham Ha</string>
+    <string name="le_dat">Le Dat</string>
+    <string name="class_a_school_b">Class A, School B</string>
+    <string name="activity">Activity</string>
+    <string name="menu">Menu</string>
+    <string name="schedule">Schedule</string>
+    <string name="health">Health</string>
+    <string name="xin_ph_p">Xin Phép</string>
+    <string name="h_c_ph">Học Phí</string>
+    <string name="l_ch_h_p">Lịch Họp</string>
+    <string name="h_nh_nh">Hình Ảnh</string>
 </resources>
