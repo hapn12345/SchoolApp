@@ -6,7 +6,7 @@ import android.os.Build;
 
 public class SharedPreferenceUtil {
     public static final String DEFAULT_SETTING_PREFERENCE = "schoolApp";
-    public static final String KEY_PASS = "password";
+    public static final String KEY_ACCESS_TOKEN = "key_access_token";
 
     public static String getKeyString(Context context, String paramString1, String paramString2) {
         return context.getSharedPreferences(DEFAULT_SETTING_PREFERENCE,
@@ -20,11 +20,11 @@ public class SharedPreferenceUtil {
                 .edit().putString(paramString1, paramString2).commit();
     }
 
-    public static String readPassWord(Context context) {
-        return getKeyString(context, KEY_PASS, "");
+    public static String readAccessToken(Context context) {
+        return getKeyString(context, KEY_ACCESS_TOKEN, "");
     }
 
-    public static void editPassWord(Context context, String pass) {
-        putKeyString(context, KEY_PASS, pass);
+    public static void editAccessToken(Context context, String pass) {
+        putKeyString(context, KEY_ACCESS_TOKEN, pass);
     }
 }

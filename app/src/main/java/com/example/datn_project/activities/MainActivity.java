@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         ViewpagerAdapter viewpagerAdapter = new ViewpagerAdapter(this);
+        mBinding.viewpager2.setOffscreenPageLimit(3);
         mBinding.viewpager2.setAdapter(viewpagerAdapter);
         mBinding.viewpager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
