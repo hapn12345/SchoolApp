@@ -33,4 +33,9 @@
     <string name="h_c_ph">Học Phí</string>
     <string name="l_ch_h_p">Lịch Họp</string>
     <string name="h_nh_nh">Hình Ảnh</string>
+    <string name="admin">ADMIN</string>
+    <string name="parent">PARENT</string>
+    <string name="account_info">Information</string>
+    <string name="logout">Logout</string>
+    <string name="edit_profile">Edit profile</string>
 </resources>

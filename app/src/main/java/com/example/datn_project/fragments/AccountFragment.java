@@ -2,65 +2,66 @@ package com.example.datn_project.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.datn_project.R;
+import com.example.datn_project.Utils.AppUtilKt;
+import com.example.datn_project.databinding.ContentProfileBinding;
+import com.example.datn_project.databinding.FragmentAccountBinding;
+import com.example.datn_project.databinding.FragmentHomeBinding;
+import com.example.datn_project.utilities.SharedPreferenceUtil;
+import com.example.datn_project.viewmodel.HomeViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AccountFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AccountFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public AccountFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AccountFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AccountFragment newInstance(String param1, String param2) {
-        AccountFragment fragment = new AccountFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private FragmentAccountBinding mBinding;
+    private ContentProfileBinding contentProfileBinding;
+    private HomeViewModel viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        mBinding = FragmentAccountBinding.inflate(inflater, container, false);
+        contentProfileBinding = mBinding.infoProfile;
+        return mBinding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getData();
+    }
+
+    private void getData() {
+        viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        viewModel.getUsers(SharedPreferenceUtil.readAccessToken(getContext())).observe(getViewLifecycleOwner(), user -> {
+            if (user != null) {
+                String name = user.getLastName() + " " + user.getFirstName();
+                mBinding.txtName.setText(name);
+                String phone = user.getPhoneNumber();
+                contentProfileBinding.txtPhoneNumber.setText(phone);
+                contentProfileBinding.txtNameUser.setText(name);
+                contentProfileBinding.txtEmailUser.setText(user.getEmail());
+                if (user.getmListStudents() == null) {
+                    mBinding.txtRole.setText(R.string.admin);
+                } else {
+                    mBinding.txtRole.setText(R.string.parent);
+                }
+            }
+        });
+        mBinding.infoProfile.btnLogout.setOnClickListener(v -> {
+            SharedPreferenceUtil.editAccessToken(v.getContext(), "");
+            if (getActivity() != null) {
+                getActivity().finish();
+            }
+        });
     }
 }
