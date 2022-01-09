@@ -1,13 +1,27 @@
 package com.example.datn_project.network;
 
+import com.example.datn_project.models.Health;
 import com.example.datn_project.models.LoginRequest;
+import com.example.datn_project.models.User;
 import com.example.datn_project.responses.LoginResponse;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface ApiService {
     @POST("users/login")
     Call<LoginResponse> userLogin(@Body LoginRequest loginRequest);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @GET("users/me")
+    Call<User> getInfoUser(@Header("Authorization") String auth);
+
+    @GET("health")
+    Call<List<Health>> getListHealth();
 }

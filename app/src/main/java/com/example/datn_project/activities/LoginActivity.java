@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
                 if (response.body() != null) {
                     SharedPreferenceUtil.putKeyString(getApplicationContext(), "userId", response.body().getUserId());
+                    SharedPreferenceUtil.editAccessToken(getApplicationContext(), response.body().getAccessToken());
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();

@@ -50,4 +50,9 @@
     <style name="textTitleBold" parent="Theme.AppCompat">
         <item name="fontFamily">@font/inter_bold</item>
     </style>
+    <style name="ThemeToolbar" parent="Theme.AppCompat.Light">
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/whiteTextColor</item>
+    </style>
 </resources>
