@@ -10,13 +10,13 @@ public class SharedPreferenceUtil {
 
     public static String getKeyString(Context context, String paramString1, String paramString2) {
         return context.getSharedPreferences(DEFAULT_SETTING_PREFERENCE,
-                Build.VERSION.SDK_INT > Build.VERSION_CODES.FROYO ? Context.MODE_MULTI_PROCESS : Context.MODE_PRIVATE)
+                Context.MODE_MULTI_PROCESS)
                 .getString(paramString1, paramString2);
     }
 
     public static void putKeyString(Context context, String paramString1, String paramString2) {
         context.getSharedPreferences(DEFAULT_SETTING_PREFERENCE,
-                Build.VERSION.SDK_INT > Build.VERSION_CODES.FROYO ? Context.MODE_MULTI_PROCESS : Context.MODE_PRIVATE)
+                Context.MODE_MULTI_PROCESS)
                 .edit().putString(paramString1, paramString2).commit();
     }
 

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.datn_project.R;
+import com.example.datn_project.Utils.AppUtilKt;
 import com.example.datn_project.adapters.ViewpagerAdapter;
 import com.example.datn_project.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
