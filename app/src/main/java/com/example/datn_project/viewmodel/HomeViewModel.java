@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.datn_project.models.Health;
+import com.example.datn_project.models.News;
 import com.example.datn_project.models.User;
 import com.example.datn_project.repositories.HealthRepository;
 import com.example.datn_project.repositories.MainRepository;
@@ -19,5 +20,9 @@ public class HomeViewModel extends ViewModel {
 
     public LiveData<User> getUsers(String auth) {
         return mainRepository.getUsers(auth);
+    }
+
+    public LiveData<List<News>> getListNews() {
+        return mainRepository.getListNews();
     }
 }

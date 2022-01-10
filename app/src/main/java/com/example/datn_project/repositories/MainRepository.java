@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.datn_project.models.Health;
+import com.example.datn_project.models.News;
 import com.example.datn_project.models.User;
 import com.example.datn_project.network.ApiClient;
 import com.example.datn_project.network.ApiService;
@@ -32,6 +33,22 @@ public class MainRepository {
 
             @Override
             public void onFailure(@NonNull Call<User> call, @NonNull Throwable t) {
+                data.setValue(null);
+            }
+        });
+        return data;
+    }
+
+    public LiveData<List<News>> getListNews() {
+        MutableLiveData<List<News>> data = new MutableLiveData<>();
+        apiService.getListNews().enqueue(new Callback<List<News>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<News>> call, @NonNull Response<List<News>> response) {
+                data.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<News>> call, @NonNull Throwable t) {
                 data.setValue(null);
             }
         });
