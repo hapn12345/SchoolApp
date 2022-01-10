@@ -2,6 +2,7 @@ package com.example.datn_project.network;
 
 import com.example.datn_project.models.Health;
 import com.example.datn_project.models.LoginRequest;
+import com.example.datn_project.models.News;
 import com.example.datn_project.models.User;
 import com.example.datn_project.responses.LoginResponse;
 
@@ -21,6 +22,9 @@ public interface ApiService {
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("users/me")
     Call<User> getInfoUser(@Header("Authorization") String auth);
+
+    @GET("news")
+    Call<List<News>> getListNews();
 
     @GET("health")
     Call<List<Health>> getListHealth();

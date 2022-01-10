@@ -13,6 +13,9 @@
         android:theme="@style/Theme.DATN_Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.NewsDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.HealthActivity"
             android:exported="false" />
         <activity
