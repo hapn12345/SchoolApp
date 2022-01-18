@@ -4,26 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".activities.ActivitiesActivity">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewpager2"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        android:layout_height="wrap_content"
+        app:title="Activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcl_activity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemIconTint="@color/tab_color"
-        app:itemTextColor="@color/tab_color"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:listitem="@layout/item_activities" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-

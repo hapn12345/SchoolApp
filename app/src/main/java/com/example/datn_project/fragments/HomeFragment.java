@@ -21,6 +21,7 @@ import android.widget.ImageView;
 
 import com.example.datn_project.MyConstants;
 import com.example.datn_project.R;
+import com.example.datn_project.activities.ActivitiesActivity;
 import com.example.datn_project.activities.HealthActivity;
 import com.example.datn_project.activities.MainActivity;
 import com.example.datn_project.activities.NewsDetailActivity;
@@ -81,6 +82,9 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
         });
         mBinding.layoutNews.txtViewAll.setOnClickListener(v -> {
             gotoNews();
+        });
+        mBinding.ctlActivity.setOnClickListener(v -> {
+            startActivity(new Intent(getContext(), ActivitiesActivity.class));
         });
     }
 
