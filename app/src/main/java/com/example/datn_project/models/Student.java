@@ -4,12 +4,20 @@ public class Student {
     private String id;
     private String firstName;
     private String lastName;
-    private String classID;
+    private int classID;
 
-    public Student(String id, String firstName, String lastName, String classID) {
+    public Student(String id, String firstName, String lastName, int classID) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.classID = classID;
+    }
+
+    public int getClassID() {
+        return classID;
+    }
+
+    public void setClassID(int classID) {
         this.classID = classID;
     }
 
@@ -37,11 +45,4 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String getClassID() {
-        return classID;
-    }
-
-    public void setClassID(String classID) {
-        this.classID = classID;
-    }
 }
