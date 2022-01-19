@@ -1,23 +1,31 @@
 package com.example.datn_project.models;
 
 public class Classes {
-    private String id;
+    private int id;
     private String name;
-    private int fee;
+    private String fee;
     private String schedule;
 
-    public Classes(String id, String name, int fee, String schedule) {
+    public Classes(int id, String name, String fee, String schedule) {
         this.id = id;
         this.name = name;
         this.fee = fee;
         this.schedule = schedule;
     }
 
-    public String getId() {
+    public String getFee() {
+        return fee;
+    }
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -29,13 +37,6 @@ public class Classes {
         this.name = name;
     }
 
-    public int getFee() {
-        return fee;
-    }
-
-    public void setFee(int fee) {
-        this.fee = fee;
-    }
 
     public String getSchedule() {
         return schedule;

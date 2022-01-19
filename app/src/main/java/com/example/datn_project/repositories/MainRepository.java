@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.datn_project.models.Classes;
 import com.example.datn_project.models.Health;
 import com.example.datn_project.models.News;
 import com.example.datn_project.models.User;
@@ -50,6 +51,22 @@ public class MainRepository {
             @Override
             public void onFailure(@NonNull Call<List<News>> call, @NonNull Throwable t) {
                 data.setValue(null);
+            }
+        });
+        return data;
+    }
+
+    public LiveData<Classes> getListClasses(int id) {
+        MutableLiveData<Classes> data = new MutableLiveData<>();
+        apiService.getClasses(id).enqueue(new Callback<Classes>() {
+            @Override
+            public void onResponse(@NonNull Call<Classes> call, @NonNull Response<Classes> response) {
+                data.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Classes> call, @NonNull Throwable t) {
+
             }
         });
         return data;

@@ -28,7 +28,6 @@ public class NewsDetailActivity extends AppCompatActivity {
     private void initToolbar() {
         setSupportActionBar(mBinding.toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayShowTitleEnabled(false);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }

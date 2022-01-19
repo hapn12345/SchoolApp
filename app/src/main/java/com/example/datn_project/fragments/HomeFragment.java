@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
@@ -28,6 +29,7 @@ import com.example.datn_project.activities.NewsDetailActivity;
 import com.example.datn_project.adapters.NewsAdapter;
 import com.example.datn_project.databinding.FragmentHomeBinding;
 import com.example.datn_project.databinding.LayoutNewsBinding;
+import com.example.datn_project.models.Classes;
 import com.example.datn_project.models.News;
 import com.example.datn_project.utilities.SharedPreferenceUtil;
 import com.example.datn_project.viewmodel.HomeViewModel;
@@ -60,9 +62,17 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
     private void getData() {
         viewModel.getUsers(SharedPreferenceUtil.readAccessToken(getContext())).observe(getViewLifecycleOwner(), user -> {
             if (user != null) {
-                Log.e("onViewCreated: ", user.getEmail());
+                String name = user.getStudents().get(0).getFirstName() + " " +
+                        user.getStudents().get(0).getLastName();
+                mBinding.txtNameChild1.setText(name);
+                if (user.getClasses().size() < 2) {
+                    viewModel.getClasses(user.getStudents().get(0).getClassID()).observe(getViewLifecycleOwner(), classes -> {
+                        mBinding.txtClassSchool.setText(classes.getName());
+                    });
+                }
             }
         });
+
         viewModel.getListNews().observe(getViewLifecycleOwner(), listNews -> {
             newsAdapter.setData(listNews);
             mBinding.layoutNews.rclNews.setAdapter(newsAdapter);
@@ -71,7 +81,7 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
     }
 
     private void gotoNews() {
-        if ((MainActivity) getActivity() != null) {
+        if (getActivity() != null) {
             ((MainActivity) getActivity()).mBinding.viewpager2.setCurrentItem(2);
         }
     }

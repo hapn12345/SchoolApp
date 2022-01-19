@@ -50,7 +50,7 @@ public class AccountFragment extends Fragment {
                 contentProfileBinding.txtPhoneNumber.setText(phone);
                 contentProfileBinding.txtNameUser.setText(name);
                 contentProfileBinding.txtEmailUser.setText(user.getEmail());
-                if (user.getmListStudents() == null) {
+                if (user.getStudents() == null) {
                     mBinding.txtRole.setText(R.string.admin);
                 } else {
                     mBinding.txtRole.setText(R.string.parent);

@@ -11,9 +11,9 @@ public class User {
     private String lastName;
     private String phoneNumber;
     private String email;
-    private List<Classes> mListClasses;
-    private List<Student> mListStudents;
-    private List<School> mListSchools;
+    private List<Classes> classes;
+    private List<Student> students;
+    private List<School> schools;
 
     public User(String id,
                 String userName,
@@ -32,9 +32,9 @@ public class User {
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.mListClasses = mListClasses;
-        this.mListStudents = mListStudents;
-        this.mListSchools = mListSchools;
+        this.classes = mListClasses;
+        this.students = mListStudents;
+        this.schools = mListSchools;
     }
 
     public String getId() {
@@ -93,27 +93,27 @@ public class User {
         this.email = email;
     }
 
-    public List<Classes> getmListClasses() {
-        return mListClasses;
+    public List<Classes> getClasses() {
+        return classes;
     }
 
-    public void setmListClasses(List<Classes> mListClasses) {
-        this.mListClasses = mListClasses;
+    public void setClasses(List<Classes> classes) {
+        this.classes = classes;
     }
 
-    public List<Student> getmListStudents() {
-        return mListStudents;
+    public List<Student> getStudents() {
+        return students;
     }
 
-    public void setmListStudents(List<Student> mListStudents) {
-        this.mListStudents = mListStudents;
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 
-    public List<School> getmListSchools() {
-        return mListSchools;
+    public List<School> getSchools() {
+        return schools;
     }
 
-    public void setmListSchools(List<School> mListSchools) {
-        this.mListSchools = mListSchools;
+    public void setSchools(List<School> schools) {
+        this.schools = schools;
     }
 }

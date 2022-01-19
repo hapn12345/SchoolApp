@@ -2,6 +2,7 @@ package com.example.datn_project.network;
 
 import com.example.datn_project.models.Activities;
 import com.example.datn_project.models.Activity;
+import com.example.datn_project.models.Classes;
 import com.example.datn_project.models.Health;
 import com.example.datn_project.models.LoginRequest;
 import com.example.datn_project.models.News;
@@ -16,6 +17,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiService {
     @POST("users/login")
@@ -33,4 +35,7 @@ public interface ApiService {
 
     @GET("activities")
     Call<Activities> getListActivities();
+
+    @GET("classes/{id}")
+    Call<Classes> getClasses(@Path("id") int id);
 }

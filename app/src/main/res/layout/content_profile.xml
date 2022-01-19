@@ -24,15 +24,6 @@
                 style="@style/headerText"
                 android:layout_width="wrap_content"
                 android:text="@string/account_info" />
-
-            <TextView
-                android:id="@+id/txt_edit_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:text="@string/edit_profile"
-                android:textColor="@color/colorAccent" />
         </RelativeLayout>
 
 
