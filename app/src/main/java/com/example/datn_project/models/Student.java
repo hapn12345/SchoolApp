@@ -1,12 +1,12 @@
 package com.example.datn_project.models;
 
 public class Student {
-    private String id;
+    private int id;
     private String firstName;
     private String lastName;
     private int classID;
 
-    public Student(String id, String firstName, String lastName, int classID) {
+    public Student(int id, String firstName, String lastName, int classID) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -21,11 +21,11 @@ public class Student {
         this.classID = classID;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
