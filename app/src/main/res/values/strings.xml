@@ -41,4 +41,8 @@
     <string name="view_all">View All</string>
     <string name="address">Address:</string>
     <string name="tham_gia">Tham Gia</string>
+    <string name="c_n_n_ng">Cân Nặng:</string>
+    <string name="ch_s_bmi">Chỉ số BMI:</string>
+    <string name="th_i_gian">Thời gian:</string>
+    <string name="chi_ti_t">Chi Tiết:</string>
 </resources>
