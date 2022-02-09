@@ -1,5 +1,6 @@
 package com.example.datn_project.adapters;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ac
                         false));
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ActivitiesViewHolder holder, int position) {
         Activity activity = mListActivities.get(position);
@@ -46,12 +48,19 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ac
         } else {
             holder.mBinding.itemExpandable.setVisibility(View.GONE);
         }
+        if (activity.isRegistered()) {
+            holder.mBinding.btnParticipant.setText("Đã Tham Gia");
+        } else {
+            holder.mBinding.btnParticipant.setText("Tham Gia");
+        }
 
-        holder.mBinding.cardViewItem.setOnClickListener(v -> {
+        holder.mBinding.rltTitle.setOnClickListener(v -> {
             onActivitiesListener.onClick(position, activity);
         });
 
-
+        holder.mBinding.btnParticipant.setOnClickListener(v -> {
+            onActivitiesListener.onParticipants(position, activity);
+        });
     }
 
     @Override
@@ -73,5 +82,7 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ac
 
     public interface OnActivitiesListener {
         void onClick(int position, Activity activity);
+
+        void onParticipants(int position, Activity activity);
     }
 }
