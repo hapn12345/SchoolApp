@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.datn_project.models.Activities;
 import com.example.datn_project.models.Activity;
+import com.example.datn_project.models.Participant;
 import com.example.datn_project.network.ApiClient;
 import com.example.datn_project.network.ApiService;
 
@@ -34,6 +35,22 @@ public class ActivitiesRepository {
 
             @Override
             public void onFailure(@NonNull Call<Activities> call, @NonNull Throwable t) {
+                data.setValue(null);
+            }
+        });
+        return data;
+    }
+
+    public LiveData<Participant> getParticipants(int id) {
+        MutableLiveData<Participant> data = new MutableLiveData<>();
+        apiService.getParticipants(id).enqueue(new Callback<Participant>() {
+            @Override
+            public void onResponse(@NonNull Call<Participant> call, @NonNull Response<Participant> response) {
+                data.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Participant> call, @NonNull Throwable t) {
                 data.setValue(null);
             }
         });

@@ -6,6 +6,7 @@ import com.example.datn_project.models.Classes;
 import com.example.datn_project.models.Health;
 import com.example.datn_project.models.LoginRequest;
 import com.example.datn_project.models.News;
+import com.example.datn_project.models.Participant;
 import com.example.datn_project.models.User;
 import com.example.datn_project.responses.LoginResponse;
 
@@ -38,4 +39,10 @@ public interface ApiService {
 
     @GET("classes/{id}")
     Call<Classes> getClasses(@Path("id") int id);
+
+    @POST("participants")
+    Call<Participant> activitiesParticipants(@Body Participant participant);
+
+    @GET("participants/{id}")
+    Call<Participant> getParticipants(@Path("id") int id);
 }

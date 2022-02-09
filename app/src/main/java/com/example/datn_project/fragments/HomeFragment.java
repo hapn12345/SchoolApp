@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
     private HomeViewModel viewModel;
     private NewsAdapter newsAdapter;
     private int studentId;
+    private int classId;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -67,6 +68,7 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
                         user.getStudents().get(0).getLastName();
                 mBinding.txtNameChild1.setText(name);
                 studentId = user.getStudents().get(0).getId();
+                classId = user.getStudents().get(0).getClassID();
                 if (user.getClasses().size() < 2) {
                     viewModel.getClasses(user.getStudents().get(0).getClassID()).observe(getViewLifecycleOwner(), classes -> {
                         mBinding.txtClassSchool.setText(classes.getName());
@@ -98,7 +100,10 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
             gotoNews();
         });
         mBinding.ctlActivity.setOnClickListener(v -> {
-            startActivity(new Intent(getContext(), ActivitiesActivity.class));
+            Intent intent = new Intent(getContext(), ActivitiesActivity.class);
+            intent.putExtra("key_student", studentId);
+            intent.putExtra("key_class", classId);
+            startActivity(intent);
         });
     }
 

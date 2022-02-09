@@ -6,6 +6,9 @@ public class Participant {
     private int studentID;
     private int classID;
 
+    public Participant() {
+    }
+
     public Participant(int id, int activityID, int studentID, int classID) {
         this.id = id;
         this.activityID = activityID;

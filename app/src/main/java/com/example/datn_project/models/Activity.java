@@ -8,6 +8,15 @@ public class Activity {
     private String address;
     @Expose
     private boolean isExpandable;
+    private boolean isRegistered;
+
+    public boolean isRegistered() {
+        return isRegistered;
+    }
+
+    public void setRegistered(boolean registered) {
+        isRegistered = registered;
+    }
 
     public void setExpandable(boolean expandable) {
         isExpandable = expandable;
