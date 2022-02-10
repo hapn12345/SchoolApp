@@ -63,4 +63,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     //zoom photoview
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    //calendar view
+    implementation 'com.applandeo:material-calendar-view:1.5.1'
+
 }
