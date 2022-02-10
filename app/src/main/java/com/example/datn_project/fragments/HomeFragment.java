@@ -24,6 +24,7 @@ import com.example.datn_project.MyConstants;
 import com.example.datn_project.R;
 import com.example.datn_project.activities.ActivitiesActivity;
 import com.example.datn_project.activities.HealthActivity;
+import com.example.datn_project.activities.LeaveDayActivity;
 import com.example.datn_project.activities.MainActivity;
 import com.example.datn_project.activities.NewsDetailActivity;
 import com.example.datn_project.adapters.NewsAdapter;
@@ -100,10 +101,10 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
             gotoNews();
         });
         mBinding.ctlActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), ActivitiesActivity.class);
-            intent.putExtra("key_student", studentId);
-            intent.putExtra("key_class", classId);
-            startActivity(intent);
+            toActivity(studentId, classId, ActivitiesActivity.class);
+        });
+        mBinding.ctlLeaveDay.setOnClickListener(v -> {
+            toActivity(studentId, classId, LeaveDayActivity.class);
         });
     }
 
@@ -111,6 +112,13 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
     public void onClick(News news) {
         Intent intent = new Intent(getContext(), NewsDetailActivity.class);
         intent.putExtra(MyConstants.KEY_NEWS, news);
+        startActivity(intent);
+    }
+
+    public void toActivity(int studentId, int classId, Class<?> a) {
+        Intent intent = new Intent(getContext(), a);
+        intent.putExtra("key_student", studentId);
+        intent.putExtra("key_class", classId);
         startActivity(intent);
     }
 }

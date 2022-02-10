@@ -4,6 +4,7 @@ import com.example.datn_project.models.Activities;
 import com.example.datn_project.models.Activity;
 import com.example.datn_project.models.Classes;
 import com.example.datn_project.models.Health;
+import com.example.datn_project.models.LeaveDay;
 import com.example.datn_project.models.LoginRequest;
 import com.example.datn_project.models.News;
 import com.example.datn_project.models.Participant;
@@ -45,4 +46,7 @@ public interface ApiService {
 
     @GET("participants/{id}")
     Call<Participant> getParticipants(@Path("id") int id);
+
+    @POST("leave-day")
+    Call<LeaveDay> requestOff(@Body LeaveDay leaveDay);
 }
