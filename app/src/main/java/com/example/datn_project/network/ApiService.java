@@ -7,6 +7,7 @@ import com.example.datn_project.models.Fee;
 import com.example.datn_project.models.Health;
 import com.example.datn_project.models.LeaveDay;
 import com.example.datn_project.models.LoginRequest;
+import com.example.datn_project.models.Meeting;
 import com.example.datn_project.models.News;
 import com.example.datn_project.models.Participant;
 import com.example.datn_project.models.User;
@@ -53,4 +54,7 @@ public interface ApiService {
 
     @GET("fees/student/{id}")
     Call<List<Fee>> getFees(@Path("id") int id);
+
+    @GET("meeting")
+    Call<List<Meeting>> getMeeting();
 }

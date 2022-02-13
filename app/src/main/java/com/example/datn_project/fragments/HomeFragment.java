@@ -27,6 +27,7 @@ import com.example.datn_project.activities.FeeActivity;
 import com.example.datn_project.activities.HealthActivity;
 import com.example.datn_project.activities.LeaveDayActivity;
 import com.example.datn_project.activities.MainActivity;
+import com.example.datn_project.activities.MeetingActivity;
 import com.example.datn_project.activities.NewsDetailActivity;
 import com.example.datn_project.adapters.NewsAdapter;
 import com.example.datn_project.databinding.FragmentHomeBinding;
@@ -109,6 +110,9 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
         });
         mBinding.ctlFee.setOnClickListener(v -> {
             toActivity(studentId, classId, FeeActivity.class);
+        });
+        mBinding.ctlMeeting.setOnClickListener(v -> {
+            toActivity(studentId, classId, MeetingActivity.class);
         });
     }
 
