@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import com.example.datn_project.MyConstants;
 import com.example.datn_project.R;
 import com.example.datn_project.activities.ActivitiesActivity;
+import com.example.datn_project.activities.AlbumActivity;
 import com.example.datn_project.activities.FeeActivity;
 import com.example.datn_project.activities.HealthActivity;
 import com.example.datn_project.activities.LeaveDayActivity;
@@ -113,6 +114,9 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
         });
         mBinding.ctlMeeting.setOnClickListener(v -> {
             toActivity(studentId, classId, MeetingActivity.class);
+        });
+        mBinding.ctlImage.setOnClickListener(v -> {
+            toActivity(studentId, classId, AlbumActivity.class);
         });
     }
 
