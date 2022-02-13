@@ -46,4 +46,7 @@
     <string name="th_i_gian">Thời gian:</string>
     <string name="chi_ti_t">Chi Tiết:</string>
     <string name="nh_p_l_do">Nhập lý do</string>
+    <string name="th_ng">Tháng</string>
+    <string name="t_n">Tên</string>
+    <string name="t_nh_tr_ng">Tình trạng</string>
 </resources>

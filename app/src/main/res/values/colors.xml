@@ -8,4 +8,5 @@
     <color name="contentTextColor">#020000</color>
     <color name="login_bk_color">#fff</color>
     <color name="text_news_descr">#BABABA</color>
+    <color name="text_fee">#858383</color>
 </resources>
