@@ -13,6 +13,9 @@
         android:theme="@style/Theme.DATN_Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.FeeActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.LeaveDayActivity"
             android:exported="false" />
         <activity

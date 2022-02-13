@@ -3,6 +3,7 @@ package com.example.datn_project.network;
 import com.example.datn_project.models.Activities;
 import com.example.datn_project.models.Activity;
 import com.example.datn_project.models.Classes;
+import com.example.datn_project.models.Fee;
 import com.example.datn_project.models.Health;
 import com.example.datn_project.models.LeaveDay;
 import com.example.datn_project.models.LoginRequest;
@@ -49,4 +50,7 @@ public interface ApiService {
 
     @POST("leave-day")
     Call<LeaveDay> requestOff(@Body LeaveDay leaveDay);
+
+    @GET("fees/student/{id}")
+    Call<List<Fee>> getFees(@Path("id") int id);
 }
