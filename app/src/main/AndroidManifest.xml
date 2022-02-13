@@ -13,6 +13,15 @@
         android:theme="@style/Theme.DATN_Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.PhotoDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AlbumActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.MeetingActivity"
             android:exported="false" />
         <activity

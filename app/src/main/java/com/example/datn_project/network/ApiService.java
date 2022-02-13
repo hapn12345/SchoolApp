@@ -2,6 +2,7 @@ package com.example.datn_project.network;
 
 import com.example.datn_project.models.Activities;
 import com.example.datn_project.models.Activity;
+import com.example.datn_project.models.Album;
 import com.example.datn_project.models.Classes;
 import com.example.datn_project.models.Fee;
 import com.example.datn_project.models.Health;
@@ -57,4 +58,7 @@ public interface ApiService {
 
     @GET("meeting")
     Call<List<Meeting>> getMeeting();
+
+    @GET("albums")
+    Call<List<Album>> getAlbum();
 }

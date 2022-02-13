@@ -9,4 +9,6 @@
     <color name="login_bk_color">#fff</color>
     <color name="text_news_descr">#BABABA</color>
     <color name="text_fee">#858383</color>
+    <color name="gray_transparent">#99FFFFFF</color>
+    <color name="color_selected">#80000000</color>
 </resources>
