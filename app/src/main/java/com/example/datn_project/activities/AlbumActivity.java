@@ -22,6 +22,7 @@ public class AlbumActivity extends AppCompatActivity implements AlbumAdapter.OnC
     private ActivityAlbumBinding mBinding;
     private AlbumViewModel viewModel;
     private AlbumAdapter albumAdapter;
+    private int classId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,15 @@ public class AlbumActivity extends AppCompatActivity implements AlbumAdapter.OnC
         albumAdapter.setListener(this);
         mBinding.rclAlbum.setLayoutManager(new GridLayoutManager(this, 2));
         mBinding.rclAlbum.setAdapter(albumAdapter);
+        classId = getIntent().getIntExtra("key_class", -1);
         viewModel = new ViewModelProvider(this).get(AlbumViewModel.class);
-        viewModel.getListAlbum().observe(this, albums -> albumAdapter.setAlbumList(albums));
+        viewModel.getListAlbum().observe(this, albums -> {
+            for (int i = 0; i < albums.size(); i++) {
+                if (Integer.parseInt(albums.get(i).getClassID()) == classId) {
+                    albumAdapter.setAlbumList(albums);
+                }
+            }
+        });
     }
 
     @Override
