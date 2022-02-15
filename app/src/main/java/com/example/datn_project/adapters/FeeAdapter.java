@@ -34,6 +34,8 @@ public class FeeAdapter extends RecyclerView.Adapter<FeeAdapter.FeeViewHolder> {
         holder.mBinding.txtStatus.setText(fee.getStatus());
         String name = fee.getStudentID().getFirstName() + " " + fee.getStudentID().getLastName();
         holder.mBinding.txtStudent.setText(name);
+        String fee1 = fee.getFee() + "";
+        holder.mBinding.txtFee.setText(fee1);
     }
 
     @Override
