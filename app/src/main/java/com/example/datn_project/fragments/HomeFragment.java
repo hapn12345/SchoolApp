@@ -29,6 +29,7 @@ import com.example.datn_project.activities.HealthActivity;
 import com.example.datn_project.activities.LeaveDayActivity;
 import com.example.datn_project.activities.MainActivity;
 import com.example.datn_project.activities.MeetingActivity;
+import com.example.datn_project.activities.MenuActivity;
 import com.example.datn_project.activities.NewsDetailActivity;
 import com.example.datn_project.adapters.NewsAdapter;
 import com.example.datn_project.databinding.FragmentHomeBinding;
@@ -117,6 +118,9 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
         });
         mBinding.ctlImage.setOnClickListener(v -> {
             toActivity(studentId, classId, AlbumActivity.class);
+        });
+        mBinding.ctlMenu.setOnClickListener(v -> {
+            toActivity(studentId, classId, MenuActivity.class);
         });
     }
 

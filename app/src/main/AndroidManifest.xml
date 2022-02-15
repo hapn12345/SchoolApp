@@ -13,6 +13,21 @@
         android:theme="@style/Theme.DATN_Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.TeaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LunchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MorningSupplementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.BreakfastActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PhotoDetailActivity"
             android:exported="false" />
         <activity

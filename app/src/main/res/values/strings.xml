@@ -49,4 +49,17 @@
     <string name="th_ng">Tháng</string>
     <string name="t_n">Tên</string>
     <string name="t_nh_tr_ng">Tình trạng</string>
+    <string name="dish">Dish</string>
+    <string name="start">Start</string>
+    <string name="end">End</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="morning_supplement">Morning supplement</string>
+    <string name="lunch">Lunch</string>
+    <string name="click_view">Click view!</string>
+    <string name="tea">Tea</string>
 </resources>
