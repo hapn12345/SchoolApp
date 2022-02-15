@@ -31,11 +31,13 @@ import com.example.datn_project.activities.MainActivity;
 import com.example.datn_project.activities.MeetingActivity;
 import com.example.datn_project.activities.MenuActivity;
 import com.example.datn_project.activities.NewsDetailActivity;
+import com.example.datn_project.activities.ScheduleActivity;
 import com.example.datn_project.adapters.NewsAdapter;
 import com.example.datn_project.databinding.FragmentHomeBinding;
 import com.example.datn_project.databinding.LayoutNewsBinding;
 import com.example.datn_project.models.Classes;
 import com.example.datn_project.models.News;
+import com.example.datn_project.models.Schedule;
 import com.example.datn_project.utilities.SharedPreferenceUtil;
 import com.example.datn_project.viewmodel.HomeViewModel;
 
@@ -48,6 +50,7 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
     private NewsAdapter newsAdapter;
     private int studentId;
     private int classId;
+    private Classes classes;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -77,6 +80,7 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
                 if (user.getClasses().size() < 2) {
                     viewModel.getClasses(user.getStudents().get(0).getClassID()).observe(getViewLifecycleOwner(), classes -> {
                         mBinding.txtClassSchool.setText(classes.getName());
+                        this.classes = classes;
                     });
                 }
             }
@@ -121,6 +125,11 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
         });
         mBinding.ctlMenu.setOnClickListener(v -> {
             toActivity(studentId, classId, MenuActivity.class);
+        });
+        mBinding.ctlSchedule.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), ScheduleActivity.class);
+            intent.putExtra("key_schedule", classes);
+            startActivity(intent);
         });
     }
 
