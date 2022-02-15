@@ -1,6 +1,8 @@
 package com.example.datn_project.models;
 
-public class Classes {
+import java.io.Serializable;
+
+public class Classes implements Serializable {
     private int id;
     private String name;
     private String fee;

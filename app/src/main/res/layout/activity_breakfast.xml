@@ -47,11 +47,11 @@
                 android:id="@+id/txt_start_at"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_20sdp"
                 android:layout_alignTop="@+id/img_ic_start"
                 android:layout_alignBottom="@+id/img_ic_start"
                 android:layout_marginStart="16dp"
-                android:layout_toEndOf="@+id/img_ic_start" />
+                android:layout_toEndOf="@+id/img_ic_start"
+                android:textSize="@dimen/_20sdp" />
         </RelativeLayout>
 
         <RelativeLayout
