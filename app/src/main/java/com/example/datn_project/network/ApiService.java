@@ -12,6 +12,7 @@ import com.example.datn_project.models.Meeting;
 import com.example.datn_project.models.News;
 import com.example.datn_project.models.Participant;
 import com.example.datn_project.models.User;
+import com.example.datn_project.models.menu.Menu;
 import com.example.datn_project.responses.LoginResponse;
 
 import java.util.List;
@@ -61,4 +62,7 @@ public interface ApiService {
 
     @GET("albums")
     Call<List<Album>> getAlbum();
+
+    @GET("menu/class/{id}")
+    Call<Menu> getMenu(@Path("id") int id);
 }
