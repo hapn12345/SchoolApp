@@ -9,6 +9,7 @@ import android.content.Intent
 import com.example.datn_project.R
 import com.example.datn_project.Utils.makeStatusBarTransparent
 import com.example.datn_project.databinding.ActivitySplashBinding
+import com.example.datn_project.utilities.SharedPreferenceUtil
 
 
 @SuppressLint("CustomSplashScreen")
@@ -26,7 +27,11 @@ class SplashActivity : AppCompatActivity() {
         binding.imgSplash.addAnimatorListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator?) {
                 val i = Intent(this@SplashActivity, LoginActivity::class.java)
-                startActivity(i)
+                if (SharedPreferenceUtil.readAccessToken(this@SplashActivity) == "") {
+                    startActivity(i)
+                } else {
+                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                }
                 finish()
             }
         })
