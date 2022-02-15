@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_16sdp"
-    android:layout_weight="3"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginBottom="@dimen/_4sdp"
+    android:layout_weight="4"
     android:orientation="horizontal">
 
     <TextView
@@ -39,4 +40,14 @@
         android:textColor="@color/text_fee"
         android:textSize="@dimen/_14ssp"
         tools:text="Not Yet" />
+
+    <TextView
+        android:id="@+id/txt_fee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/text_fee"
+        android:textSize="@dimen/_14ssp"
+        tools:text="12312321" />
 </LinearLayout>

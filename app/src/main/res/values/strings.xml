@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ModernLogin</string>
+    <string name="app_name">School App</string>
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>
     <string name="title_login">Already \nhave an \nAccount?</string>
@@ -62,4 +62,6 @@
     <string name="lunch">Lunch</string>
     <string name="click_view">Click view!</string>
     <string name="tea">Tea</string>
+    <string name="body">Body</string>
+    <string name="title">Title</string>
 </resources>

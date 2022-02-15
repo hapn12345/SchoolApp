@@ -4,17 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.datn_project.R;
 import com.example.datn_project.Utils.AppUtilKt;
+import com.example.datn_project.activities.fcm.NotificationBroadCast;
 import com.example.datn_project.adapters.ViewpagerAdapter;
 import com.example.datn_project.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     public ActivityMainBinding mBinding;
+    private final NotificationBroadCast notificationBroadCast = new NotificationBroadCast();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +28,15 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
         initView();
+        registerReceiver(notificationBroadCast, new IntentFilter());
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(notificationBroadCast);
+    }
+
 
     private void initView() {
         ViewpagerAdapter viewpagerAdapter = new ViewpagerAdapter(this);
