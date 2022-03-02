@@ -48,6 +48,7 @@
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/activity_teacher_activities.xml" value="0.23796296296296296" />
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/activity_teacher_fee.xml" value="0.23796296296296296" />
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/activity_teacher_health.xml" value="0.23796296296296296" />
+        <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/activity_teacher_leave_day.xml" value="0.371875" />
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/content_profile.xml" value="0.371875" />
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/dialog_info.xml" value="0.371875" />
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/fragment_account.xml" value="0.18" />
@@ -68,6 +69,7 @@
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/item_schedule.xml" value="0.25" />
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/item_teacher_fee.xml" value="0.23796296296296296" />
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/item_teacher_health.xml" value="0.23796296296296296" />
+        <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/item_teacher_leaveday.xml" value="0.23796296296296296" />
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/layout_news.xml" value="0.20140845070422536" />
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/layout/system_icon.xml" value="0.371875" />
         <entry key="..\:/Users/This PC/StudioProjects/SchoolApp/app/src/main/res/menu/action_bar_view.xml" value="0.371875" />

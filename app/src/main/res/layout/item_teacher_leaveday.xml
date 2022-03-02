@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_12sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="@dimen/_10sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_8sdp">
+
+        <TextView
+            android:id="@+id/txt_title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:text="@string/t_n"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:text="@string/t_n"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_title_name"
+            app:layout_constraintTop_toTopOf="@+id/txt_title_name" />
+
+        <TextView
+            android:id="@+id/txt_title_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:text="Ngày bắt đầu nghỉ: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+
+        <TextView
+            android:id="@+id/txt_time_firstDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toEndOf="@+id/txt_title_height"
+            app:layout_constraintTop_toTopOf="@+id/txt_title_height"
+            tools:text="160 cm" />
+
+        <TextView
+            android:id="@+id/txt_time_lastDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="@+id/txt_time_firstDay"
+            app:layout_constraintTop_toTopOf="@+id/txt_title_time"
+            tools:text="25-1-2022" />
+
+        <TextView
+            android:id="@+id/txt_dayOff"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_time_lastDay"
+            app:layout_constraintTop_toTopOf="@+id/txt_title_des"
+            tools:text="Biến ăn" />
+
+        <TextView
+            android:id="@+id/txt_title_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/ng_y_k_t_th_c_ngh"
+            app:layout_constraintStart_toStartOf="@+id/txt_title_height"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title_height" />
+
+        <TextView
+            android:id="@+id/txt_title_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/s_ng_y_ngh"
+            app:layout_constraintStart_toStartOf="@+id/txt_title_time"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title_time" />
+
+        <TextView
+            android:id="@+id/txt_title_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/l_do"
+            app:layout_constraintStart_toStartOf="@+id/txt_title_time"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title_des" />
+
+        <TextView
+            android:id="@+id/txt_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_time_firstDay"
+            app:layout_constraintTop_toTopOf="@+id/txt_title_content"
+            tools:text="Biến ăn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

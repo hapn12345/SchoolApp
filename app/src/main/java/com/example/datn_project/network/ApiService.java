@@ -14,6 +14,7 @@ import com.example.datn_project.models.Participant;
 import com.example.datn_project.models.Student;
 import com.example.datn_project.models.User;
 import com.example.datn_project.models.menu.Menu;
+import com.example.datn_project.responses.LeaveDayResponse;
 import com.example.datn_project.responses.LoginResponse;
 import com.example.datn_project.responses.ParticipantsResponse;
 
@@ -61,6 +62,9 @@ public interface ApiService {
 
     @POST("leave-day")
     Call<LeaveDay> requestOff(@Body LeaveDay leaveDay);
+
+    @GET("leave-day")
+    Call<List<LeaveDayResponse>> getListLeaveDay();
 
     @GET("fees/student/{id}")
     Call<List<Fee>> getFees(@Path("id") int id);

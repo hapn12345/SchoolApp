@@ -35,6 +35,7 @@ import com.example.datn_project.activities.ScheduleActivity;
 import com.example.datn_project.activities.TeacherActivitiesActivity;
 import com.example.datn_project.activities.TeacherFeeActivity;
 import com.example.datn_project.activities.TeacherHealthActivity;
+import com.example.datn_project.activities.TeacherLeaveDayActivity;
 import com.example.datn_project.adapters.NewsAdapter;
 import com.example.datn_project.databinding.FragmentHomeBinding;
 import com.example.datn_project.databinding.LayoutNewsBinding;
@@ -173,7 +174,11 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
             mBinding.ctlFee.setOnClickListener(v -> {
                 Intent intent = new Intent(getContext(), TeacherFeeActivity.class);
                 intent.putExtra("key_class", classId);
-                intent.putExtra("role", "parent");
+                startActivity(intent);
+            });
+            mBinding.ctlLeaveDay.setOnClickListener(v -> {
+                Intent intent = new Intent(getContext(), TeacherLeaveDayActivity.class);
+                intent.putExtra("key_class", classId);
                 startActivity(intent);
             });
         }
