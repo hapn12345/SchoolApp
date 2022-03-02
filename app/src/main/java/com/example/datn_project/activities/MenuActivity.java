@@ -47,7 +47,7 @@ public class MenuActivity extends AppCompatActivity {
         menuViewModel.getMenu(classId).observe(this, new Observer<Menu>() {
             @Override
             public void onChanged(Menu menu) {
-                String jsonString = menu.getContent();
+                 String jsonString = menu.getContent();
                 StringMenu fooFromJson = gson.fromJson(jsonString, StringMenu.class);
                 onListener(fooFromJson);
             }

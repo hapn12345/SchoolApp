@@ -78,7 +78,6 @@ public class ActivitiesActivity extends AppCompatActivity implements ActivitiesA
     public void onParticipants(int position, Activity activity) {
         Participant participant = new Participant();
         participant.setStudentID(studentId);
-        participant.setId(activity.getId());
         participant.setActivityID(activity.getId());
         participant.setClassID(classId);
 

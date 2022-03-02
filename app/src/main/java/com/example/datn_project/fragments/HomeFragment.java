@@ -32,6 +32,9 @@ import com.example.datn_project.activities.MeetingActivity;
 import com.example.datn_project.activities.MenuActivity;
 import com.example.datn_project.activities.NewsDetailActivity;
 import com.example.datn_project.activities.ScheduleActivity;
+import com.example.datn_project.activities.TeacherActivitiesActivity;
+import com.example.datn_project.activities.TeacherFeeActivity;
+import com.example.datn_project.activities.TeacherHealthActivity;
 import com.example.datn_project.adapters.NewsAdapter;
 import com.example.datn_project.databinding.FragmentHomeBinding;
 import com.example.datn_project.databinding.LayoutNewsBinding;
@@ -66,22 +69,36 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         newsAdapter = new NewsAdapter();
         getData();
-        onListener();
     }
 
     private void getData() {
         viewModel.getUsers(SharedPreferenceUtil.readAccessToken(getContext())).observe(getViewLifecycleOwner(), user -> {
             if (user != null) {
-                String name = user.getStudents().get(0).getFirstName() + " " +
-                        user.getStudents().get(0).getLastName();
-                mBinding.txtNameChild1.setText(name);
-                studentId = user.getStudents().get(0).getId();
-                classId = user.getStudents().get(0).getClassID();
-                if (user.getClasses().size() < 2) {
-                    viewModel.getClasses(user.getStudents().get(0).getClassID()).observe(getViewLifecycleOwner(), classes -> {
-                        mBinding.txtClassSchool.setText(classes.getName());
-                        this.classes = classes;
-                    });
+
+                if (user.getStudents().size() != 0) {
+                    String name = user.getStudents().get(0).getFirstName() + " " +
+                            user.getStudents().get(0).getLastName();
+                    mBinding.txtNameChild1.setText(name);
+                    studentId = user.getStudents().get(0).getId();
+                    classId = user.getStudents().get(0).getClassID();
+                    if (user.getClasses().size() < 2) {
+                        viewModel.getClasses(user.getStudents().get(0).getClassID()).observe(getViewLifecycleOwner(), classes -> {
+                            mBinding.txtClassSchool.setText(classes.getName());
+                            this.classes = classes;
+                        });
+                    }
+                    onListener(false);
+                } else {
+                    classId = user.getClasses().get(0).getId();
+                    mBinding.txtClassSchool.setText(user.getClasses().get(0).getName());
+                    mBinding.txtNameChild1.setText("");
+                    if (user.getClasses().size() < 2) {
+                        viewModel.getClasses(user.getClasses().get(0).getId()).observe(getViewLifecycleOwner(), classes -> {
+                            mBinding.txtClassSchool.setText(classes.getName());
+                            this.classes = classes;
+                        });
+                    }
+                    onListener(true);
                 }
             }
         });
@@ -95,42 +112,71 @@ public class HomeFragment extends Fragment implements NewsAdapter.OnNewsListener
 
     private void gotoNews() {
         if (getActivity() != null) {
-            ((MainActivity) getActivity()).mBinding.viewpager2.setCurrentItem(2);
+            ((MainActivity) getActivity()).mBinding.viewpager2.setCurrentItem(1);
         }
     }
 
-    private void onListener() {
-        mBinding.ctlHealth.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), HealthActivity.class);
-            intent.putExtra("key_student", studentId);
-            startActivity(intent);
-        });
-        mBinding.layoutNews.txtViewAll.setOnClickListener(v -> {
-            gotoNews();
-        });
-        mBinding.ctlActivity.setOnClickListener(v -> {
-            toActivity(studentId, classId, ActivitiesActivity.class);
-        });
-        mBinding.ctlLeaveDay.setOnClickListener(v -> {
-            toActivity(studentId, classId, LeaveDayActivity.class);
-        });
-        mBinding.ctlFee.setOnClickListener(v -> {
-            toActivity(studentId, classId, FeeActivity.class);
-        });
-        mBinding.ctlMeeting.setOnClickListener(v -> {
-            toActivity(studentId, classId, MeetingActivity.class);
-        });
-        mBinding.ctlImage.setOnClickListener(v -> {
-            toActivity(studentId, classId, AlbumActivity.class);
-        });
-        mBinding.ctlMenu.setOnClickListener(v -> {
-            toActivity(studentId, classId, MenuActivity.class);
-        });
-        mBinding.ctlSchedule.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), ScheduleActivity.class);
-            intent.putExtra("key_schedule", classes);
-            startActivity(intent);
-        });
+    private void onListener(boolean isTeacher) {
+        if (!isTeacher) {
+            mBinding.ctlHealth.setOnClickListener(v -> {
+                Intent intent = new Intent(getContext(), HealthActivity.class);
+                intent.putExtra("key_student", studentId);
+                intent.putExtra("role", "parent");
+                startActivity(intent);
+            });
+            mBinding.layoutNews.txtViewAll.setOnClickListener(v -> {
+                gotoNews();
+            });
+            mBinding.ctlActivity.setOnClickListener(v -> {
+                toActivity(studentId, classId, ActivitiesActivity.class);
+            });
+            mBinding.ctlLeaveDay.setOnClickListener(v -> {
+                toActivity(studentId, classId, LeaveDayActivity.class);
+            });
+            mBinding.ctlFee.setOnClickListener(v -> {
+                toActivity(studentId, classId, FeeActivity.class);
+            });
+            mBinding.ctlMeeting.setOnClickListener(v -> {
+                toActivity(studentId, classId, MeetingActivity.class);
+            });
+            mBinding.ctlImage.setOnClickListener(v -> {
+                toActivity(studentId, classId, AlbumActivity.class);
+            });
+            mBinding.ctlMenu.setOnClickListener(v -> {
+                toActivity(studentId, classId, MenuActivity.class);
+            });
+            mBinding.ctlSchedule.setOnClickListener(v -> {
+                Intent intent = new Intent(getContext(), ScheduleActivity.class);
+                intent.putExtra("key_schedule", classes);
+                startActivity(intent);
+            });
+        } else {
+            mBinding.ctlActivity.setOnClickListener(v -> {
+                Intent intent = new Intent(getContext(), TeacherActivitiesActivity.class);
+                intent.putExtra("key_class", classId);
+                startActivity(intent);
+            });
+            mBinding.ctlMenu.setOnClickListener(v -> {
+                Intent intent = new Intent(getContext(), MenuActivity.class);
+                intent.putExtra("key_class", classId);
+                startActivity(intent);
+            });
+            mBinding.ctlSchedule.setOnClickListener(v -> {
+                Intent intent = new Intent(getContext(), ScheduleActivity.class);
+                intent.putExtra("key_schedule", classes);
+                startActivity(intent);
+            });
+            mBinding.ctlHealth.setOnClickListener(v -> {
+                Intent intent = new Intent(getContext(), TeacherHealthActivity.class);
+                startActivity(intent);
+            });
+            mBinding.ctlFee.setOnClickListener(v -> {
+                Intent intent = new Intent(getContext(), TeacherFeeActivity.class);
+                intent.putExtra("key_class", classId);
+                intent.putExtra("role", "parent");
+                startActivity(intent);
+            });
+        }
     }
 
     @Override
