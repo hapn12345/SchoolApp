@@ -1,15 +1,14 @@
 package com.example.datn_project.models;
 
-public class Fee {
+public class FeeRequest {
     private String id;
     private int fee;
     private String month;
     private String status;
-    private Student studentID;
+    private String studentID;
     private String classID;
 
-
-    public Fee(String id, int fee, String month, String status, Student student, String classID) {
+    public FeeRequest(String id, int fee, String month, String status, String student, String classID) {
         this.id = id;
         this.fee = fee;
         this.month = month;
@@ -50,12 +49,12 @@ public class Fee {
         this.status = status;
     }
 
-    public Student getStudentID() {
-        return studentID;
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
     }
 
-    public void setStudentID(Student studentID) {
-        this.studentID = studentID;
+    public String getStudentID() {
+        return studentID;
     }
 
     public String getClassID() {

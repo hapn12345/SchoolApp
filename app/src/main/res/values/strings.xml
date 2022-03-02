@@ -33,7 +33,7 @@
     <string name="h_c_ph">Học Phí</string>
     <string name="l_ch_h_p">Lịch Họp</string>
     <string name="h_nh_nh">Hình Ảnh</string>
-    <string name="admin">ADMIN</string>
+    <string name="teacher">TEACHER</string>
     <string name="parent">PARENT</string>
     <string name="account_info">Information</string>
     <string name="logout">Logout</string>
@@ -64,4 +64,7 @@
     <string name="tea">Tea</string>
     <string name="body">Body</string>
     <string name="title">Title</string>
+    <string name="l_do">Lý Do</string>
+    <string name="s_ng_y_ngh">Số ngày nghỉ</string>
+    <string name="ng_y_k_t_th_c_ngh">Ngày kết thúc nghỉ:</string>
 </resources>

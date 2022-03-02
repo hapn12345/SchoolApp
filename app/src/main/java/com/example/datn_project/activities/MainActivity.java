@@ -51,15 +51,12 @@ public class MainActivity extends AppCompatActivity {
                         mBinding.navigationView.getMenu().findItem(R.id.bot_home).setChecked(true);
                         break;
                     case 1:
-                        mBinding.navigationView.getMenu().findItem(R.id.bot_message).setChecked(true);
-                        break;
-                    case 2:
                         mBinding.navigationView.getMenu().findItem(R.id.bot_news).setChecked(true);
                         break;
-                    case 3:
+                    case 2:
                         mBinding.navigationView.getMenu().findItem(R.id.bot_notification).setChecked(true);
                         break;
-                    case 4:
+                    case 3:
                         mBinding.navigationView.getMenu().findItem(R.id.bot_account).setChecked(true);
                         break;
                 }
@@ -71,9 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.bot_home:
                         mBinding.viewpager2.setCurrentItem(0);
-                        break;
-                    case R.id.bot_message:
-                        mBinding.viewpager2.setCurrentItem(1);
                         break;
                     case R.id.bot_news:
                         mBinding.viewpager2.setCurrentItem(2);
