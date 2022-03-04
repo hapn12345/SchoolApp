@@ -46,7 +46,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
             holder.mBinding.lnDescription.setVisibility(View.GONE);
         }
 
-        String period = "Period " + (position + 1);
+        String period = "Tiết " + (position + 1);
         holder.mBinding.txtTitlePeriod.setText(period);
         holder.mBinding.txtStartAt.setText(schedule.getStartAt());
         holder.mBinding.txtEndAt.setText(schedule.getEndAt());

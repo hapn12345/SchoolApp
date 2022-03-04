@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.datn_project.R;
 import com.example.datn_project.Utils.AppUtilKt;
 import com.example.datn_project.databinding.ContentProfileBinding;
@@ -52,8 +53,14 @@ public class AccountFragment extends Fragment {
                 contentProfileBinding.txtEmailUser.setText(user.getEmail());
                 if (user.getStudents().size() == 0) {
                     mBinding.txtRole.setText(R.string.teacher);
+                    Glide.with(getContext())
+                            .load(R.drawable.teacher)
+                            .into(mBinding.imgIc);
                 } else {
                     mBinding.txtRole.setText(R.string.parent);
+                    Glide.with(getContext())
+                            .load(R.drawable.a)
+                            .into(mBinding.imgIc);
                 }
             }
         });
