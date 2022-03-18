@@ -2,7 +2,6 @@ package com.example.datn_project.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,14 +12,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.datn_project.R;
+import com.example.datn_project.activities.dialog.InfoDialog;
 import com.example.datn_project.adapters.TeacherHealthAdapter;
 import com.example.datn_project.databinding.ActivityTeacherHealthBinding;
-import com.example.datn_project.models.Health;
-import com.example.datn_project.repositories.HealthRepository;
 import com.example.datn_project.viewmodel.HealthViewModel;
-import com.example.datn_project.viewmodel.HomeViewModel;
-
-import java.util.List;
 
 public class TeacherHealthActivity extends AppCompatActivity {
     private ActivityTeacherHealthBinding mBinding;

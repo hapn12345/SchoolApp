@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.datn_project.adapters.ImageAdapter;
 import com.example.datn_project.databinding.ActivityImageBinding;
 import com.example.datn_project.models.Album;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +21,6 @@ import java.util.List;
 public class ImageActivity extends AppCompatActivity implements ImageAdapter.OnClickItemAlbumListener {
     private ActivityImageBinding mBinding;
     private ImageAdapter imageAdapter;
-    private List<String> mListImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,6 @@ public class ImageActivity extends AppCompatActivity implements ImageAdapter.OnC
         mBinding = ActivityImageBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
         initToolbar();
-        mListImage = new ArrayList<>();
         imageAdapter = new ImageAdapter();
         imageAdapter.setListener(this);
         mBinding.rclPhoto.setAdapter(imageAdapter);
@@ -35,9 +36,15 @@ public class ImageActivity extends AppCompatActivity implements ImageAdapter.OnC
     }
 
     private void getData() {
-        Album album = (Album) getIntent().getSerializableExtra("album");
-        mListImage.addAll(album.getImages());
-        imageAdapter.setImageList(mListImage);
+        String child = getIntent().getStringExtra("key_child");
+        StorageReference listRef = FirebaseStorage.getInstance().getReference().child(child);
+        listRef.listAll()
+                .addOnSuccessListener(listResult -> {
+                    imageAdapter.setImageList(listResult.getItems());
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Load ảnh không thành công", Toast.LENGTH_SHORT).show();
+                });
     }
 
     @Override

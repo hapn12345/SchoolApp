@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.datn_project.databinding.ItemImageBinding;
-import com.example.datn_project.models.Album;
+import com.google.firebase.storage.StorageReference;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
-    private List<String> mListImage = new ArrayList<>();
+    private List<StorageReference> mListImage = new ArrayList<>();
     private OnClickItemAlbumListener mListener;
 
-    public void setImageList(List<String> mListAlbum) {
+    public void setImageList(List<StorageReference> mListAlbum) {
         this.mListImage = mListAlbum;
         notifyItemRangeChanged(0, mListAlbum.size());
     }
@@ -36,15 +36,17 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        String image = mListImage.get(position);
-
-        Glide.with(holder.itemView.getContext())
-                .load(image)
-                .into(holder.mBinding.imgPhoto);
-
-        holder.itemView.setOnClickListener(v -> {
-            mListener.onClick(image, position);
+        StorageReference image = mListImage.get(position);
+        image.getDownloadUrl().addOnCompleteListener(task -> {
+            String profileImageUrl = task.getResult().toString();
+            Glide.with(holder.itemView.getContext())
+                    .load(profileImageUrl)
+                    .into(holder.mBinding.imgPhoto);
+            holder.itemView.setOnClickListener(v -> {
+                mListener.onClick(profileImageUrl, position);
+            });
         });
+
     }
 
     @Override

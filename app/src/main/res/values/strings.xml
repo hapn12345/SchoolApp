@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">School App</string>
     <string name="login_email_hint">Email</string>
-    <string name="login_password_hint">Password</string>
-    <string name="title_login">Already \nhave an \nAccount?</string>
+    <string name="login_password_hint">Mật Khẩu</string>
+    <string name="title_login">Chưa \ncó tài \nKhoản?</string>
     <string name="forgot_password">Forgot Password?</string>
-    <string name="login">Login</string>
+    <string name="login">Đăng Nhập</string>
     <string name="new_user">New user? Register Now</string>
     <string name="you_can_login_with">You can Login With</string>
     <string name="name">Name</string>
@@ -67,4 +67,5 @@
     <string name="l_do">Lý Do</string>
     <string name="s_ng_y_ngh">Số ngày nghỉ</string>
     <string name="ng_y_k_t_th_c_ngh">Ngày kết thúc nghỉ:</string>
+    <string name="t_n_ho_t_ng">Tên hoạt động</string>
 </resources>
