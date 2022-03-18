@@ -14,6 +14,24 @@
         android:theme="@style/Theme.DATN_Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.TeacherAlbumActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LeaveDayStudentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FeeStudentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HealthStudentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ScheduleStudentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MenuStudentActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.TeacherLeaveDayActivity"
             android:exported="false" />
         <activity

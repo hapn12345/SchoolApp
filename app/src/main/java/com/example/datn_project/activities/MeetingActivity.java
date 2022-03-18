@@ -1,32 +1,19 @@
 package com.example.datn_project.activities;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
-import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
 import com.example.datn_project.R;
-import com.example.datn_project.databinding.ActivityFeeBinding;
 import com.example.datn_project.databinding.ActivityMeetingBinding;
-import com.example.datn_project.models.LeaveDay;
-import com.example.datn_project.models.Meeting;
 import com.example.datn_project.viewmodel.MeetingViewModel;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -37,6 +24,7 @@ public class MeetingActivity extends AppCompatActivity {
     private ActivityMeetingBinding mBinding;
     public MeetingViewModel viewModel;
     public int classID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

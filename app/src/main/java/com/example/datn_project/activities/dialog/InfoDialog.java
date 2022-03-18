@@ -1,4 +1,4 @@
-package com.example.datn_project.activities;
+package com.example.datn_project.activities.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
